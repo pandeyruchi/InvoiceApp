@@ -1,0 +1,20 @@
+<h3 class="page-header">Invoice List</h3>
+<table class="table table-bordered table-hover success">
+    <tr class="text-center" style="background-color:#419641">
+        <td>Id</td>
+        <td>Customer Name</td>
+        <td>Item</td>
+        <td>Quantity</td>
+        <td>Cost</td>
+        <td>Total Cost</td>
+    </tr>
+  <tr class="text-center" ng-repeat="invoice in invoices">
+      <td>{{invoice.id}}</td>
+      <td><a ui-sref="invoiceList.customerDetails({id:invoice.selectedCustomer.id})">{{invoice.selectedCustomer.name}}</a></td>
+      <td>{{invoice.selectedItem.name}}</td>
+      <td>{{invoice.quantity}}</td>
+      <td>{{invoice.selectedItem.cost}}</td>
+      <td>{{invoice.totalCost}}</td>
+  </tr>
+</table>
+<div ui-view></div>

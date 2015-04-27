@@ -1,0 +1,28 @@
+<h3 class="page-header">Customer Details : {{customerDetails.id}}</h3>
+<table class="table table-bordered table-hover success">
+    <tr class="text-center" style="background-color:#419641">
+        <td>Id</td>
+        <td>Name</td>
+        <td>Phone</td>
+        <td>Address</td>
+        <td>City</td>
+        <td>Postal</td>
+        <td>Invoices</td>
+
+    </tr>
+    <tr class="text-center">
+        <td>{{customerDetails.id}}</td>
+        <td>{{customerDetails.name}}</td>
+        <td>{{customerDetails.phone}}</td>
+        <td>{{customerDetails.address.city}}</td>
+        <td>{{customerDetails.address.street}}</td>
+        <td>{{customerDetails.address.postal}}</td>
+        <td>
+            <div ng-repeat="invoice in customerDetails.invoices">
+                {{invoice.id}}
+            </div>
+
+        </td>
+    </tr>
+</table>
+</div>

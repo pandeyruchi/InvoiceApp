@@ -1,0 +1,54 @@
+<h1 class="page-header">
+    <button type="button" class="btn btn-link" ng-click="startCreating()">
+                <span class="glyphicon glyphicon-plus">
+                    Create Invoice
+                </span>
+    </button>
+</h1>
+<div ng-show="isCreating" class="customer-form">
+    <form ng-submit="createInvoice(newInvoice)">
+        <div class="form-inline">
+            <label for="newInvoiceId" class="control-label">Invoice No:</label>
+            <input type="text" style="width: 100px" readonly class="form-control text input-sm" id="newInvoiceId"
+                   ng-model="newInvoice.id">
+        </div>
+        <br/>
+
+        <div class="form-group">
+            <label for="newInvoiceCustomer" class="control-label">Customer</label>
+            <select class="text form-control input-sm" id="newInvoiceCustomer"
+                    ng-options="customer.name for customer in customers"
+                    ng-model="newInvoice.selectedCustomer">
+            </select>
+        </div>
+        <div  class="form-inline">
+            <label for="invoiceItems" class="control-label">Items:</label>
+            <select style="width: 210px" class="text form-control input-sm" id="invoiceItems"
+                    ng-options="item.name for item in items | orderBy : 'name'"
+                    ng-model="newInvoice.selectedItem"></select>
+            <label for="invoiceQuantity" class="control-label ">Qunatity</label>
+            <input type="number" id="invoiceQuantity" style="width: 50px" class="form-control text input-sm "
+                   ng-model="newInvoice.quantity">
+            <label for="invoiceCost" class="control-label">Cost</label>
+            <input type="text" style="width: 80px" readonly class="form-control text input-sm"
+                   ng-model="newInvoice.selectedItem.cost"
+                   id="invoiceCost">
+            <button type="button" ng-click="calculateCost()" class="btn btn-success form-control">
+                <span class="glyphicon glyphicon-plus">Add</span>
+            </button>
+        </div>
+        <br/>
+        <div class="form-inline">
+            <label for="invoiceTotalCost" class="control-label">Total:</label>
+            <input type="text" readonly style="width:100px" class="form-control text input-sm rupee" id="invoiceTotalCost"
+                   ng-model="newInvoice.totalCost">
+        </div>
+        <br/>
+        <div class="form-group">
+            <button type="button" ng-click="cancelCreating()" class="btn btn-default">Cancel</button>
+            <button type="submit" class="btn btn-success">Create Invoice</button>
+        </div>
+    </form>
+    <br/>
+
+</div>

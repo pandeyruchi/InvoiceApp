@@ -1,0 +1,31 @@
+<h3 class="page-header">Customer Detail</h3>
+<table class="table table-bordered table-hover success">
+    <tr class="text-center" style="background-color:#419641">
+        <td>Id</td>
+        <td>Name</td>
+        <td>Phone</td>
+        <td>Address</td>
+        <td>City</td>
+        <td>Postal</td>
+        <td>Invoices</td>
+
+    </tr>
+    <!--<tbody ng-repeat="customer in customers">-->
+    <tr class="success text-center">
+        <td rowspan="invoiceMap[customer.id].length">{{customerInfo.id}}</td>
+        <td rowspan="invoiceMap[customer.id].length">{{customerInfo.name}}</td>
+        <td rowspan="invoiceMap[customer.id].length">{{customerInfo.phone}}</td>
+        <td rowspan="invoiceMap[customer.id].length">{{customerInfo.address.street}}</td>
+        <td rowspan="invoiceMap[customer.id].length">{{customerInfo.address.city}}</td>
+        <td rowspan="invoiceMap[customer.id].length">{{customerInfo.address.postal}}</td>
+
+        <td>
+            <div ng-repeat="invoice in invoiceMap[customerInfo.id]">
+                <a ui-sref="customerList.invoiceDetails({id:invoice.id})">{{invoice.id}}</a>
+            </div>
+
+        </td>
+
+    </tr>
+</table>
+<div ui-view></div>

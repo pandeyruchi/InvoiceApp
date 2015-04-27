@@ -1,0 +1,20 @@
+<h3 class="page-header">Invoice Details : {{invoiceDetails.id}}</h3>
+<table class="table table-bordered table-hover success">
+    <tr class="text-center" style="background-color:#419641">
+        <td>Id</td>
+        <td>Customer Name</td>
+        <td>Item</td>
+        <td>Quantity</td>
+        <td>Cost</td>
+        <td>Total Cost</td>
+    </tr>
+    <tr class="text-center">
+        <td>{{invoiceDetails.id}}</td>
+        <td>{{invoiceDetails.selectedCustomer.name}}</td>
+        <td>{{invoiceDetails.selectedItem.name}}</td>
+        <td>{{invoiceDetails.quantity}}</td>
+        <td>{{invoiceDetails.selectedItem.cost}}</td>
+        <td>{{invoiceDetails.totalCost}}</td>
+    </tr>
+</table>
+</div>
