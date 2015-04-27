@@ -23,7 +23,7 @@ angular.module('invoice').factory('invoiceService', function () {
             id: "INV2",
             selectedCustomer: {
                 name: "Mary",
-                id: "Cust1",
+                id: "Cust2",
                 address: {
                     street: "bavdhan", city: "Pune",
                     postal: "411021"
