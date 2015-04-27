@@ -8,7 +8,7 @@ angular.module('invoice').factory('invoiceService', function () {
         invoices: [{
             id: "INV1",
             selectedCustomer: {
-                name: "Rahul Shukla",
+                name: "John",
                 id: "Cust1",
                 address: {
                     street: "bavdhan", city: "Pune",
@@ -22,7 +22,7 @@ angular.module('invoice').factory('invoiceService', function () {
         },{
             id: "INV2",
             selectedCustomer: {
-                name: "Rahul Shukla",
+                name: "Mary",
                 id: "Cust1",
                 address: {
                     street: "bavdhan", city: "Pune",
