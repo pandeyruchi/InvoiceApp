@@ -4,7 +4,7 @@
 angular.module('customer').factory('customerService', [function () {
     return ({
         customers: [{
-            name: "Rahul Shukla",
+            name: "John",
             id: "Cust1",
             address: {
                 street: "bavdhan", city: "Pune",
@@ -12,7 +12,7 @@ angular.module('customer').factory('customerService', [function () {
             },
             phone: "9657191672"
         }, {
-            name: "Ruchi Pandey",
+            name: "Mary",
             id: "Cust2",
             address: {
                 street: "bavdhan", city: "Pune",
