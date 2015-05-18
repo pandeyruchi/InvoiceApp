@@ -16,9 +16,7 @@ angular.module('invoice').factory('invoiceService', function () {
                 },
                 phone: "9657191672"
             },
-            selectedItem: {"id": 0, "name": 'Iphone 6', cost: 52000},
-            quantity: 3,
-            totalCost: 156000
+            items: [{name: 'Iphone 6', quantity:3 , cost: 52000, tottalCost:156000}]
         },{
             id: "INV2",
             selectedCustomer: {
@@ -28,11 +26,9 @@ angular.module('invoice').factory('invoiceService', function () {
                     street: "bavdhan", city: "Pune",
                     postal: "411021"
                 },
-                phone: "9657191672"
+                phone: "9930960145"
             },
-            selectedItem: {"id": 0, "name": 'Iphone 6', cost: 52000},
-            quantity: 2,
-            totalCost: 104000
+            items: [{name: 'Iphone 6', quantity:2 , cost: 52000, tottalCost:104000}]
         }],
         createInvoice: function (invoice) {
             this.invoices.push(invoice);

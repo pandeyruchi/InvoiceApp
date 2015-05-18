@@ -4,6 +4,7 @@
 
 angular.module('customer').config(function($stateProvider,$urlRouterProvider){
 
+
     $stateProvider
         .state('customer',{
         url:'customer',
@@ -23,6 +24,11 @@ angular.module('customer').config(function($stateProvider,$urlRouterProvider){
         .state('customerInfo',{
             url:'/customerInfo:name',
             templateUrl:'app/customer/customerInfo.html',
+            controller:'customerCtrl'
+        })
+        .state('customerInfo.invoiceDetails',{
+            url:'/customerInfo:id',
+            templateUrl:'app/customer/customerList.invoiceDetails.html',
             controller:'customerCtrl'
         })
 })

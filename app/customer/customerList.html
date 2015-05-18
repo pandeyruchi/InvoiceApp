@@ -19,10 +19,10 @@
         <td rowspan="invoiceMap[customer.id].length">{{customer.address.city}}</td>
         <td rowspan="invoiceMap[customer.id].length">{{customer.address.postal}}</td>
 
-        <td>
-            <div ng-repeat="invoice in invoiceMap[customer.id]">
-                <a ui-sref="customerList.invoiceDetails({id:invoice.id})">{{invoice.id}}</a>
-            </div>
+            <td>
+                <div ng-repeat="invoice in invoiceMap[customer.id]">
+                    <a ui-sref="customerList.invoiceDetails({id:invoice.id})">{{invoice.id}}</a>
+                </div>
 
         </td>
 

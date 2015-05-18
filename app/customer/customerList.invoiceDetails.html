@@ -3,18 +3,24 @@
     <tr class="text-center" style="background-color:#419641">
         <td>Id</td>
         <td>Customer Name</td>
-        <td>Item</td>
-        <td>Quantity</td>
-        <td>Cost</td>
-        <td>Total Cost</td>
+        <td style="width:150px">Item</td>
+        <td style="width:150px">Quantity</td>
+        <td style="width:150px">Cost</td>
+        <td style="width:150px">Total Cost</td>
     </tr>
     <tr class="text-center">
         <td>{{invoiceDetails.id}}</td>
         <td>{{invoiceDetails.selectedCustomer.name}}</td>
-        <td>{{invoiceDetails.selectedItem.name}}</td>
-        <td>{{invoiceDetails.quantity}}</td>
-        <td>{{invoiceDetails.selectedItem.cost}}</td>
-        <td>{{invoiceDetails.totalCost}}</td>
+        <td colspan="4">
+            <table class="table table-bordered table-hover">
+                <tr class="text-center" ng-repeat="item in invoiceDetails.items">
+                    <td style="width:149px">{{item.name}}</td>
+                    <td style="width:149px">{{item.quantity}}</td>
+                    <td style="width:149px">{{item.cost}}</td>
+                    <td style="width:149px">{{item.cost*item.quantity}}</td>
+                </tr>
+            </table>
+        </td>
     </tr>
 </table>
 </div>

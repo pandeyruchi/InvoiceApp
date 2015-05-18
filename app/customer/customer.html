@@ -7,7 +7,7 @@
 </h1>
 
 <div ng-show="isCreating"  class="customer-form">
-    <form ng-submit="createCustomer(newCustomer)">
+    <form name="registration" ng-submit="createCustomer(newCustomer)">
         <div class="form-group">
             <label for="newCustomerId" class="control-label">Customer Id</label>
             <input id="newCustomerId" ng-model="newCustomer.id" readonly class="form-control input-sm text">
@@ -20,8 +20,9 @@
         </div>
         <div class="form-group">
             <label for="newCustomerPhone" class="control-label">Phone</label>
-            <input type="text" id="newCustomerPhone" ng-model="newCustomer.phone" placeholder="Phone"
+            <input type="text" only-digits ng-minlength="10" name="phoneNumber" ng-maxlength="10" id="newCustomerPhone" ng-model="newCustomer.phone" placeholder="Phone"
                    class="form-control input-sm text">
+            <span class="error-message" ng-show="registration.phoneNumber.$dirty && registration.phoneNumber.$invalid">The phone number field should be of 10 digits</span>
             <br/>
             <label for="newCustomerStreet" class="control-label">Street</label>
             <input type="text" id="newCustomerStreet" ng-model="newCustomer.address.street" placeholder="Street"

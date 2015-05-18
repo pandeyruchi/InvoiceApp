@@ -11,17 +11,17 @@
 
     </tr>
     <!--<tbody ng-repeat="customer in customers">-->
-    <tr class="success text-center">
-        <td rowspan="invoiceMap[customer.id].length">{{customerInfo.id}}</td>
-        <td rowspan="invoiceMap[customer.id].length">{{customerInfo.name}}</td>
-        <td rowspan="invoiceMap[customer.id].length">{{customerInfo.phone}}</td>
-        <td rowspan="invoiceMap[customer.id].length">{{customerInfo.address.street}}</td>
-        <td rowspan="invoiceMap[customer.id].length">{{customerInfo.address.city}}</td>
-        <td rowspan="invoiceMap[customer.id].length">{{customerInfo.address.postal}}</td>
+    <tr class="success text-center" ng-repeat="customer in customers | customerFilter:filter">
+        <td >{{customer.id}}</td>
+        <td >{{customer.name}}</td>
+        <td >{{customer.phone}}</td>
+        <td >{{customer.address.street}}</td>
+        <td >{{customer.address.city}}</td>
+        <td >{{customer.address.postal}}</td>
 
         <td>
-            <div ng-repeat="invoice in invoiceMap[customerInfo.id]">
-                <a ui-sref="customerList.invoiceDetails({id:invoice.id})">{{invoice.id}}</a>
+            <div ng-repeat="invoice in invoiceMap[customer.id]">
+                <a ui-sref="customerInfo.invoiceDetails({id:invoice.id})">{{invoice.id}}</a>
             </div>
 
         </td>

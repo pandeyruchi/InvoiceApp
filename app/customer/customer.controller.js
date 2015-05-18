@@ -1,10 +1,10 @@
 /**
  * Created by ruchyp on 4/21/2015.
  */
-angular.module('customer').controller('customerCtrl', ['$scope', 'customerService', 'invoiceService','$stateParams',
-    function ($scope, customerService, invoiceService,$stateParams) {
+angular.module('customer').controller('customerCtrl', ['$scope', 'customerService', 'invoiceService','$filter','$stateParams',
+    function ($scope, customerService, invoiceService,$filter,$stateParams) {
         $scope.newCustomer = {};
-
+        $scope.filter =$stateParams.name;
         $scope.createCustomer = function (customer) {
             $scope.newCustomer = customer;
             customerService.createCustomer(customer);
@@ -29,25 +29,7 @@ angular.module('customer').controller('customerCtrl', ['$scope', 'customerServic
             }
         }
 
-        $scope.invoiceDetails = {};
-
-        $scope.invoiceDetails.id = $stateParams.id;
-
-        for (var invoice = 0, len = invoices.length; invoice < len; invoice += 1) {
-            if (invoices[invoice].id === $scope.invoiceDetails.id) {
-                $scope.invoiceDetails=invoices[invoice];
-            }
-        }
-
-        $scope.customerInfo ={};
-
-        $scope.customerInfo.name = $stateParams.name;
-
-        for (var cust = 0, len = $scope.customers.length; cust < len; cust += 1) {
-            if ($scope.customers[cust].name === $scope.customerInfo.name) {
-                $scope.customerInfo=$scope.customers[cust];
-            }
-        }
+        $scope.invoiceDetails = $filter('invoiceFilter')(invoices,$stateParams.id);
 
         $scope.resetCreateForm = resetCreateForm;
         $scope.getUniqueId = getUniqueId;
@@ -68,7 +50,6 @@ angular.module('customer').controller('customerCtrl', ['$scope', 'customerServic
         function cancelCreating() {
             $scope.isCreating = false;
         }
-
 
         function resetCreateForm() {
             $scope.newCustomer = {
